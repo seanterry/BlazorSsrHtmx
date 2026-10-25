@@ -52,12 +52,21 @@ You can also move the content of `Routes.razor` to `App.razor` and eliminate the
 do that here.
 
 We then move all the markup into our `MainLayout.razor`. The complete change can be seen in
-[this commit](https://github.com/seanterry/BlazorSsrHtmx/commit/1708bf73f84696714b6a0c7315d3c8b3b0fa7eef). But don't
-let it get too comfortable there. We're going to move it all again later.
+[this commit](https://github.com/seanterry/BlazorSsrHtmx/commit/1708bf73f84696714b6a0c7315d3c8b3b0fa7eef).
 
 Components returned by Minmal APIs can now opt-in to a full-page layout with an explicit `@layout` directive. And using
 a layout other than `MainLayout` for any component is done the same way. So two out of our three problems are salved.
 
 But we created one new one: Components that have an explicit `@layout` directive are always full-page. They cannot be
 partials.
+
+## Step 3: Add HTMX
+
+Next you'll want to get the script for [HTMX 4](https://four.htmx.org/). You can just link to the CDN, but I prefer to
+serve it as a static asset. To do so, download the script locally to `wwwroot/lib/htmx@4.0.0/htmx.min.js` and add it to
+your MainLayout like I did in [this commit](https://github.com/seanterry/BlazorSsrHtmx/commit/8554cdd85511c9f4bd83309845d567a106b22ca5).
+
+```html
+<script defer src="@Assets["lib/htmx@4.0.0/htmx.min.js"]"></script>
+```
 
