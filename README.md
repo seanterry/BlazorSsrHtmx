@@ -18,10 +18,14 @@ rendering. Razor Components can also be returned from Minimal APIs.
 Whatever interaction cannot be handled with HTMX, can usually easily by added by vanilla Javascript or commonly
 available libraries.
 
-## Step 1: Basic SSR project
+## Step 1: Blazor Static SSR project
 
 To start, we'll create a basic Blazor server project with no interactivity. This is easily done with the command:
 ```
 dotnet new blazor -n BlazorSsrHtmx -int None
 ```
 I did that in [this commit](https://github.com/seanterry/BlazorSsrHtmx/commit/93c9aa8f4a6ed7fa438a6f5df739d4842dd36ed5).
+
+Note: I was using the .NET 11 SDK RC2. I am aware of one major difference since .NET 10 that I will point out later in
+the relevant section.
+
