@@ -1,9 +1,12 @@
 using BlazorSsrHtmx.Components;
+using BlazorSsrHtmx.Htmx;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
+
+builder.Services.AddScoped<HtmxService>();
 
 var app = builder.Build();
 
