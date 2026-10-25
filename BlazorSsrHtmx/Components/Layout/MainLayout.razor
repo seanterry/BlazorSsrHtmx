@@ -1,4 +1,13 @@
-﻿@inherits LayoutComponentBase
+﻿@using BlazorSsrHtmx.Htmx
+@inherits LayoutComponentBase
+@inject HtmxService Htmx
+@if ( Htmx.IsHtmx )
+{
+    <!-- allow the title to pass through to HTMX -->
+    <HeadOutlet />
+    @Body
+    return;
+}
 <!DOCTYPE html>
 <html lang="en">
 
