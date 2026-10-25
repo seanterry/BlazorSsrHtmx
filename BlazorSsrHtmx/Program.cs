@@ -21,6 +21,7 @@ app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages:
 app.UseHttpsRedirection();
 
 app.MapStaticAssets();
+app.UseMiddleware<HtmxMiddleware>();
 app.MapRazorComponents<App>();
 
 app.Run();
